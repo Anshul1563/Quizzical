@@ -24,7 +24,7 @@ export default function Quiz(props){
     
     function handleClick(answer,id)
     {
-        console.log(id,answer)
+        
         setQuestions(prevQuestions => prevQuestions.map(q =>{
             return q.id === id ? {...q,selected : answer} : q
         }))
@@ -41,7 +41,6 @@ export default function Quiz(props){
     }
     function categorySelect(){
         const num = props.category
-        console.log(num)
         let category = ""
         if (num == 12) category = 'Music'
         else if (num == 15) category = 'Video Games'
@@ -54,7 +53,7 @@ export default function Quiz(props){
 
     const questionElements = questions.map( q => <Question question = {q} handleClick ={handleClick} key = {q.id} id = {q.id} reveal = {submitted} />)
 
-    console.log(dataArray)
+    
 
     return (
         <div className="quiz w-screen h-screen p-10 flex flex-col ">

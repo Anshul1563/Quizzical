@@ -40,11 +40,6 @@ export default function Question(props){
         }
         return style1
     }
-    
-    function htmlDecode(input) {
-        var doc = new DOMParser().parseFromString(input, "text/html");
-        return doc.documentElement.textContent;
-      }
 
     return (
         <div className="px-5 flex flex-col border-b-4 border-white"> 

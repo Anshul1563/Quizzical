@@ -13,17 +13,13 @@ export default function Setup(props) {
     React.useEffect(()=>{
         async function getQuestions(){
         const res = await fetch(`https://opentdb.com/api.php?amount=${formData.questions}&category=${formData.category}&difficulty=${formData.difficulty}`)
-        console.log("Fetching...")
+       
         if (res.ok){
-            console.log("Fetch successful")
             const data = await res.json()
             if (data.results.length > 0) {
                 setLoad(2)
                 props.setup([data.results,formData])
             }
-        }
-        else {
-            console.log("Fetch failed")
         }
         }
         getQuestions()

@@ -23,7 +23,7 @@ export default function App() {
       setPage(n)
     }
 
-    console.log(data)
+    
     return (
       <div>
          {page === 0 && <Home changePage = {() => handlePage(1)}/>} 
