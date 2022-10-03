@@ -21,7 +21,7 @@ export default function Quiz(props){
         })
         return questions
     }
-
+    
     function handleClick(answer,id)
     {
         console.log(id,answer)
@@ -38,6 +38,18 @@ export default function Quiz(props){
     function handleRetake(){
         setQuestions(questionsInit())
         Setsubmitted(false)
+    }
+    function categorySelect(){
+        const num = props.category
+        console.log(num)
+        let category = ""
+        if (num == 12) category = 'Music'
+        else if (num == 15) category = 'Video Games'
+        else if (num == 31) category = 'Anime and Manga'
+        else if (num == 10) category = 'Books'
+        else if (num == 14) category = 'Television'
+        else category = 'Any Category'
+        return category 
     }
 
     const questionElements = questions.map( q => <Question question = {q} handleClick ={handleClick} key = {q.id} id = {q.id} reveal = {submitted} />)
@@ -56,7 +68,7 @@ export default function Quiz(props){
                     { submitted &&<button className="text-3xl mr-10 p-2 rounded-2xl" style = {{background : 'rgb(157, 141, 241)'}} onClick ={handleRetake}>Retake Quiz</button>}
                     <div className="flex flex-col">
                         <h1>Number of questions : {props.questions}</h1>
-                        <h1>Category : {props.category ? props.category : "Any Category"}</h1>
+                        <h1>Category : {categorySelect()}</h1>
                         <h1>Difficulty : {props.difficulty ? props.difficulty : "Any Difficulty"}</h1>
                     </div>
                 </div>

@@ -27,7 +27,7 @@ export default function App() {
     return (
       <div>
          {page === 0 && <Home changePage = {() => handlePage(1)}/>} 
-         {page === 1 && <Setup setup ={setup} />}
+         {page === 1 && <Setup setup ={setup} changePage = {() => handlePage(0)} />}
          {page === 2 && <Quiz category = {data.category} questions ={data.questions} difficulty = {data.difficulty} data = {data.questionArray} changePage = {() => handlePage(1)} />}
       </div>
     )

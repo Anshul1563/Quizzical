@@ -40,6 +40,7 @@ export default function Question(props){
         }
         return style1
     }
+    
     function htmlDecode(input) {
         var doc = new DOMParser().parseFromString(input, "text/html");
         return doc.documentElement.textContent;
@@ -50,25 +51,29 @@ export default function Question(props){
             <h1 className="my-4 font-sans text-3xl text-slate-300">{decode(props.question.Q)}</h1>
             <div className="flex gap-20 font-jost text-3xl mb-6"> 
                 <button 
-                    id = '1'  
+                    id = '1'
+                    disabled = {props.reveal ? "disabled":""} 
                     value = {options[0]} 
                     style ={selectStyle(0)} 
                     className="border-2 border-green-500 rounded-2xl px-3 py-1 text-slate-200" 
                     onClick={() => props.handleClick(options[0],props.id)}> {decode(options[0])} </button>
                 <button 
-                    id = '2'  
+                    id = '2'
+                    disabled = {props.reveal ? "disabled":""}   
                     value = {options[1]} 
                     style ={selectStyle(1)} 
                     className="border-2 border-green-500 rounded-2xl px-3 py-1 text-slate-200" 
                     onClick={() => props.handleClick(options[1],props.id)}> {decode(options[1])} </button>
                 {options[2] && <button 
-                    id = '3'  
+                    id = '3'
+                    disabled = {props.reveal ? "disabled":""}   
                     value = {options[2]} 
                     style ={selectStyle(2)} 
-                    className="border-2 border-green-500 rounded-2xl px-3 py-1 text-slate-200" 
+                    className="border-2 border-green-500 rounded-2xl px-3 py-1 text-slate-200 " 
                     onClick={() => props.handleClick(options[2],props.id)}> {decode(options[2])} </button>}
                 {options[3] && <button 
-                    id = '4'  
+                    id = '4'
+                    disabled = {props.reveal ? "disabled":""}   
                     value = {options[3]} 
                     style ={selectStyle(3)} 
                     className="border-2 border-green-500 rounded-2xl px-3 py-1 text-slate-200" 

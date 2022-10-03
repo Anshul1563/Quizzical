@@ -47,7 +47,11 @@ export default function Setup(props) {
     return (
         <div className="setup h-screen items-center p-8">
             <div className="rounded-xl bg-slate-100/40  text-black p-5 flex flex-col items-center justify-start h-full">
-                <h1 className="text-center font-jost text-5xl font-medium  py-2 pb-5 w-full ">Setup your questions!</h1>
+                <div className="flex items-baseline w-full justify-between">
+                <button className="text-3xl px-3 rounded-2xl mr-20" style = {{background : 'rgb(157, 141, 241)',visibility :'hidden'}} >Home</button>
+                    <h1 className="text-center font-jost text-5xl font-medium  py-2 pb-5 w-full">Setup your questions!</h1>
+                    <button className="text-3xl px-3 py-2 rounded-md mr-20 font-jost bg-slate-800 text-green-400" onClick ={props.changePage}>Home</button>
+                </div>
                 <form className="flex flex-col p-4 w-full pl-[34rem] rounded border-4 border-white" onSubmit={handleSubmit}>
                     <h1 className="font-jost text-3xl font-medium mb-2">Enter Number of questions</h1>
                     <div className="flex items-center">
