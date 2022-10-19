@@ -40,32 +40,38 @@ export default function Setup(props) {
         }
     }
 
+    function handleEnter(event){
+        console.log(event.target)
+        console.log("Entered")
+    }
+
     return (
-        <div className="setup h-screen items-center p-8">
-            <div className="rounded-xl bg-slate-100/40  text-black p-5 flex flex-col items-center justify-start h-full">
+        <div className="setup h-screen bg-[#050E26] items-center p-8">
+            <div className="rounded-xl text-white p-5 flex flex-col items-center justify-start h-full">
                 <div className="flex items-baseline w-full justify-between">
                 <button className="text-3xl px-3 rounded-2xl mr-20" style = {{background : 'rgb(157, 141, 241)',visibility :'hidden'}} >Home</button>
                     <h1 className="text-center font-jost text-5xl font-medium  py-2 pb-5 w-full">Setup your questions!</h1>
                     <button className="text-3xl px-3 py-2 rounded-md mr-20 font-jost bg-slate-800 text-green-400" onClick ={props.changePage}>Home</button>
                 </div>
-                <form className="flex flex-col p-4 w-full pl-[34rem] rounded border-4 border-white" onSubmit={handleSubmit}>
-                    <h1 className="font-jost text-3xl font-medium mb-2">Enter Number of questions</h1>
+                <form className="flex flex-col p-4 px-10 w-fit rounded-lg border-4 border-white text-black" onSubmit={handleSubmit}>
+                    <h1 className="font-jost text-3xl font-medium mb-2 text-white">Enter Number of questions</h1>
                     <div className="flex items-center">
                     <input
                         type="number"
                         placeholder="Enter a number..."
                         onChange={handleChange}
                         name="questions"
+                        min = '0'
                         value={formData.questions}
                         className = 'rounded-lg w-48'
                     />
-                    {(formData.questions <=0  || formData.questions >50) && <h1 className="text-xl font-jost text-red-700 ml-10 rounded bg-slate-100 px-2 flex items-center py-1">
+                    {<h1 className="text-xl font-jost text-red-700 ml-10 rounded bg-slate-100 px-2 flex items-center py-1" style ={{visibility : formData.questions <=0  || formData.questions >50 ? 'visible': 'hidden'}}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 mr-3">
                             <path fillRule="evenodd" d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z" clipRule="evenodd" />
                         </svg>
                         Enter a number between 1-50 </h1>}
                     </div>
-                    <h1 className="font-jost text-3xl font-medium my-2">Select your category</h1>
+                    <h1 className="font-jost text-3xl font-medium my-2 text-white">Select your category</h1>
                     <select
                         id="category"
                         value={formData.category}
@@ -80,7 +86,7 @@ export default function Setup(props) {
                         <option value="10">Books</option>
                         <option value="14">Television</option>
                     </select>
-                    <h1 className="font-jost text-3xl font-medium my-2">Select your difficulty</h1>
+                    <h1 className="font-jost text-3xl font-medium my-2 text-white">Select your difficulty</h1>
                     <select
                         id="difficulty"
                         value={formData.difficulty}
@@ -93,7 +99,7 @@ export default function Setup(props) {
                         <option value="medium">Medium</option>
                         <option value="hard">Hard</option>
                     </select>
-                    <button className="flex items-center font-jost text-3xl font-medium text-start mt-10 text-green-400 rounded-xl bg-slate-800 w-fit px-4 py-2 transition duration-150 hover:ring-4 hover:ring-green-700" >
+                    <button className="flex items-center font-jost text-3xl font-medium text-start mt-10 text-green-400 rounded-xl bg-slate-800 w-fit px-4 py-2 transition duration-150 hover:ring-4 hover:ring-green-700" onMouseEnter={handleEnter} >
                         Submit
                         {load == 1 && <div role="status" className="flex items-center">
                             <svg className="ml-3 inline mr-2 w-6 h-6 text-gray-200 animate-spin dark:text-gray-600 fill-yellow-400" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">

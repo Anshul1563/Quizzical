@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'logo': "url('./images/React-icon.svg')",
+        'quiz' : "url('./images/Quiz bg.jpg')"
       }
     },
     fontFamily : {

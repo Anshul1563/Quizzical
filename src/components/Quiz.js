@@ -56,7 +56,7 @@ export default function Quiz(props){
     
 
     return (
-        <div className="quiz w-screen h-screen p-10 flex flex-col ">
+        <div className="quiz w-screen h-screen bg-[#050E26] p-10 flex flex-col ">
             <div className="font-jost mb-4 bg-slate-900 text-white p-4 flex justify-between">
                 {!submitted &&<h1 className="text-6xl">Here are your questions!</h1>}
                 { submitted &&<h1 className="text-6xl">Test Completed!</h1>}
